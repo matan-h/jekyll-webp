@@ -18,6 +18,18 @@ def progress_bar(percent, max = 100, file = "", max_file_len = 20)
   # print Jekyll.logger.message("WebP:", "\r[#{('=' * bars)}#{(' ' * ([(max/2) - bars,0].max))}] #{(percent*100).round}% #{file}#{' ' * max_file_len}#{"\b" * max_file_len}")
 end
 
+# Cross-platform way of finding an executable in the $PATH. from so:2108727::5471032
+def find_executable(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each do |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return !(exe.empty?) if File.executable?(exe) && !File.directory?(exe)
+    end
+  end
+  nil
+end
+
 module Jekyll
   module Webp
 

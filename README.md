@@ -16,9 +16,11 @@ WebP Image Generator for Jekyll Sites can automatically generate WebP images for
 gem install jekyll-webp
 ```
 
-The release includes all necessary files to run, including the WebP redistributable executable files.
+The release does **not** includes all necessary files to run. you need to install cwebp yourself from <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">the Google page</a>.
 
-> Currently the release includes the v0.6.1 version of the WebP utilities for Windows, Linux and Mac OS X 10.9 (Mountain Lion). Other versions and releases can be downloaded directly from <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">the Google page</a>.
+### new fetures:
+* progressbar
+* get automaticlly the installed cwebp.
 
 Add the gem to your `Gemfile` and to Jekyll's `_config.yml` then run `jekyll serve` again and you should see the generator run during site generation.
 
@@ -37,7 +39,7 @@ webp:
 
   # List of directories containing images to optimize, nested directories will only be checked if `nested` is true
   # By default the generator will search for a folder called `/img` under the site root and process all jpg, png and tiff image files found there.
-  img_dir: ["/img"]
+  img_dir: ["/assets/images"]
 
   # Whether to search in nested directories or not
   nested: false
