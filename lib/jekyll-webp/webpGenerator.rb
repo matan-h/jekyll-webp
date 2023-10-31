@@ -52,6 +52,7 @@ module Jekyll
 
         # Counting the number of files generated
         file_count = 0
+        has_cwebp = find_executable('cwebp')
 
         # Iterate through every image in each of the image folders and create a webp image
         # if one has not been created already for that image.
@@ -92,7 +93,7 @@ module Jekyll
                 Jekyll.logger.info "WebP:", "Change to source image file #{imgfile} detected, regenerating WebP"
 
                 # Generate the file
-                WebpExec.run(@config['quality'], @config['flags'], imgfile, outfile_fullpath_webp, @config['webp_path'])
+                WebpExec.run(@config['quality'], @config['flags'], imgfile, outfile_fullpath_webp, @config['webp_path'],has_cwebp)
                 file_count += 1
               end
               if File.file?(outfile_fullpath_webp)
