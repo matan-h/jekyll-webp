@@ -78,8 +78,8 @@ In case you don't have control over your webserver then using the `<picture>` el
 </picture>
 ```
 ## Advanced use: Liquid block
-if you sometimes compile the images to webp, and sometimes dont, and you want one block to get filename,
-you can put this liquid code inside the `_includes` folder in your jekyll (in `webp` file, without extention). 
+If you sometimes compile the images to WebP, and sometimes don't, and you want one block to get filename,
+you can put this liquid code inside the `_includes` folder in your Jekyll (in `webp` file, without extension). 
 ```liquid
 {% assign webp_images = (site.static_files | where: "extname", '.webp' ) %}
 {% if webp_images.size > 0 %}
@@ -88,7 +88,7 @@ you can put this liquid code inside the `_includes` folder in your jekyll (in `w
 {{ include.filename }}
 {% endif %}
 ```
-or without enters and spaces:
+Or without enters and spaces:
 ```liquid
 {% assign webp_images = (site.static_files | where: "extname", '.webp') %}{% if webp_images.size > 0 %}{{ include.filename | split: '.' | first }}.webp{% else %}{{include.filename}}{% endif %}
 ```
@@ -96,7 +96,7 @@ then you can use it like this:
 ```liquid
 <img src="{% include webp filename="assets/images/example.png"%}">
 ```
-and if you have any webp image in your images folder, it would convert 'example.png' to 'example.webp'
+and if you have any WebP image in your `images` folder, it would convert 'example.png' to 'example.webp'
 
 
 ## Advanced use: Webserver Configuration
