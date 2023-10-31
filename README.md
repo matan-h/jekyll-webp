@@ -77,13 +77,34 @@ In case you don't have control over your webserver then using the `<picture>` el
   <img src="/path/to/image.jpg" alt="">
 </picture>
 ```
+## Advanced use: Liquid block
+if you sometimes compile the images to webp, and sometimes dont, and you want one block to get filename,
+you can put this liquid code inside the `_includes` folder in your jekyll (in `webp` file, without extention). 
+```liquid
+{% assign webp_images = (site.static_files | where: "extname", '.webp' ) %}
+{% if webp_images.size > 0 %}
+{{ include.filename | split: '.' | first }}.webp
+{% else %}
+{{ include.filename }}
+{% endif %}
+```
+or without enters and spaces:
+```liquid
+{% assign webp_images = (site.static_files | where: "extname", '.webp') %}{% if webp_images.size > 0 %}{{ include.filename | split: '.' | first }}.webp{% else %}{{include.filename}}{% endif %}
+```
+then you can use it like this:
+```liquid
+<img src="{% include webp filename="assets/images/example.png"%}">
+```
+and if you have any webp image in your images folder, it would convert 'example.png' to 'example.webp'
+
 
 ## Advanced use: Webserver Configuration
 If you can, then configuring your webserver to serve your new _.webp_ files to clients that support the format is probably the least problematic approach. This way you don't need to make any changes to your HTML files as your webserver will automatically serve WebP images when the client supports them. 
 
 Below is an example for a .htaccess configuration section in an Apache web-server. It will redirect users to webp images whenever possible.
 
-```
+```ini
 ####################
 # Attempt to redirect images to WebP if one exists 
 # and the client supports the file format
