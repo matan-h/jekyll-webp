@@ -16,13 +16,13 @@ WebP Image Generator for Jekyll Sites can automatically generate WebP images for
 gem install jekyll-webp
 ```
 
-The release does **not** includes all necessary files to run. you need to install cwebp yourself from <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">the Google page</a>.
+The release does **not** include all necessary files to run. You need to install cwebp yourself from <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">the Google page</a>.
 
-### new fetures:
-* progressbar
-* get automaticlly the installed cwebp.
+### new features:
+* ProgressBar
+* get automatically the installed cwebp.
 
-Add the gem to your `Gemfile` and to Jekyll's `_config.yml` then run `jekyll serve` again and you should see the generator run during site generation.
+Add the gem to your `Gemfile` and to Jekyll's `_config.yml` then run `jekyll serve` again, and you should see the generator run during site generation.
 
 ## Configuration
 The plugin can be configured in the site's `_config.yml` file by including the `webp` configuration element
@@ -96,13 +96,13 @@ then you can use it like this:
 ```liquid
 <img src="{% include webp filename="assets/images/example.png"%}">
 ```
-and if you have any WebP image in your `images` folder, it would convert 'example.png' to 'example.webp'
+And if you have any WebP image in your `images` folder, it would convert 'example.png' to 'example.webp'
 
 
 ## Advanced use: Webserver Configuration
 If you can, then configuring your webserver to serve your new _.webp_ files to clients that support the format is probably the least problematic approach. This way you don't need to make any changes to your HTML files as your webserver will automatically serve WebP images when the client supports them. 
 
-Below is an example for a .htaccess configuration section in an Apache web-server. It will redirect users to webp images whenever possible.
+Below is an example for a.htaccess configuration section in an Apache web-server. It will redirect users to webp images whenever possible.
 
 ```ini
 ####################
