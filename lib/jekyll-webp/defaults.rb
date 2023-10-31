@@ -34,7 +34,7 @@ module Jekyll
       "regenerate" => false,
 
       # Local path to the WebP utilities to use (relative or absolute)
-      # Leave as nil to use the cmd line utilities shipped with the gem, override to use your local install
+      # Leave as nil to use the cmd line utilities in the $PATH, override to use your custom install path
       "webp_path" => nil,
 
       # List of files or directories to exclude

@@ -52,7 +52,7 @@ webp:
   regenerate: false
 
   # Local path to the WebP utilities to use (relative or absolute)
-  # Omit or leave as nil to use the utilities shipped with the gem, override only to use your local install
+  # Omit or leave as nil to use the cmd line utilities in the $PATH, override to use your custom install path
   # Eg : "/usr/local/bin/cwebp"
   webp_path: nil
 
