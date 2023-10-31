@@ -81,7 +81,7 @@ In case you don't have control over your webserver then using the `<picture>` el
 If you sometimes compile the images to WebP, and sometimes don't, and you want one block to get filename,
 you can put this liquid code inside the `_includes` folder in your Jekyll (in `webp` file, without extension). 
 ```liquid
-{% assign webp_images = (site.static_files | where: "extname", '.webp' ) %}
+{% assign webp_images = site.static_files | where: "extname", '.webp' %}
 {% if webp_images.size > 0 %}
 {{ include.filename | split: '.' | first }}.webp
 {% else %}
@@ -90,7 +90,7 @@ you can put this liquid code inside the `_includes` folder in your Jekyll (in `w
 ```
 Or without enters and spaces:
 ```liquid
-{% assign webp_images = (site.static_files | where: "extname", '.webp') %}{% if webp_images.size > 0 %}{{ include.filename | split: '.' | first }}.webp{% else %}{{include.filename}}{% endif %}
+{% assign webp_images = site.static_files | where: "extname", '.webp' %}{% if webp_images.size > 0 %}{{ include.filename | split: '.' | first }}.webp{% else %}{{include.filename}}{% endif %}
 ```
 then you can use it like this:
 ```liquid
